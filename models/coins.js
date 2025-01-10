@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+// Schema
 const coinSchema=new mongoose.Schema({
     coin:{
         type:String,
