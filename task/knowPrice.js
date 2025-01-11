@@ -10,7 +10,7 @@ export const knowPrice=async()=>{
                 ids:"bitcoin,matic-network,ethereum",
                 vs_currencies:"usd",
                 include_market_cap:true,
-                include_24_hr_change:true,
+                include_24hr_change:true,
             },
         })
 

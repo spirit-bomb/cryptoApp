@@ -23,7 +23,7 @@ export const getStats=async(req,res)=>{
                 ids:coinId,
                 vs_currencies:"usd",
                 include_market_cap:true,
-                include_24_hr_change:true,
+                include_24hr_change:true,
             },
         })
         //extract the data from the response
