@@ -18,14 +18,7 @@ export const getStats=async(req,res)=>{
     }
     try{
         //fetch the stats of the coin
-        const stat=await axios.get(`https://api.coingecko.com/api/v3/simple/price?x_cg_demo_api_key=${process.env.API_KEY}`,{
-            params:{
-                ids:coinId,
-                vs_currencies:"usd",
-                include_market_cap:true,
-                include_24hr_change:true,
-            },
-        })
+        const stat=await axios.get(`https://api.coingecko.com/api/v3/simple/price?ids=${coinId}&vs_currencies=usd&include_market_cap=true&include_24hr_change=true&x_cg_demo_api_key=${process.env.API_KEY}`);
         //extract the data from the response
         const data=stat.data[coinId];
         const result={
