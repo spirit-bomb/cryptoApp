@@ -9,7 +9,10 @@ import cors from 'cors';
 
 
 const app=express();
-app.use(cors());
+app.use(cors({
+    method:["GET"],
+    credentials:true,
+}));
 app.use(express.json());
 
 //connect to database
