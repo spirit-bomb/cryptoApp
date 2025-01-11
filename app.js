@@ -5,9 +5,11 @@ import {knowPrice} from "./task/knowPrice.js";
 import cron from "node-cron";
 import {getStats} from "./task/stats.js";
 import {getDeviations} from './task/deviation.js';
+import cors from 'cors';
 
 
 const app=express();
+app.use(cors());
 app.use(express.json());
 
 //connect to database
