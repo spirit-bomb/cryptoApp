@@ -2,7 +2,7 @@ import axios from 'axios';
 
 //This function is used to get the stats of a particular coin
 export const getStats=async(req,res)=>{
-    const {coin}=req.body;
+    const {coin}=req.query
     if(!coin){
         return res.status(400).json({msg:"coin name is required"});
     }

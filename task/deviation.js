@@ -1,18 +1,18 @@
 import coinModel from '../models/coins.js';
 export const getDeviations=async(req,res)=>{
-    const { coin } = req.body;
+    const {coin} = req.query;
 
-    if (!coin) {
+    if (!coin){
         return res.status(400).json({ error: 'Please provide a cryptocurrency name.'});
     }
 
-    try {
+    try{
         // Fetch the last 100 records for the specified cryptocurrency
         const records = await coinModel.find({ coin: { $regex: new RegExp(`^${coin}$`, 'i') } })
             .sort({ timestamp: -1 }) // Sort by timestamp descending
             .limit(100);
 
-        if (records.length === 0) {
+        if(records.length === 0) {
             return res.status(404).json({ error: 'No records found for the requested cryptocurrency.' });
         }
 
@@ -30,7 +30,7 @@ export const getDeviations=async(req,res)=>{
         const standardDeviation = Math.sqrt(variance);
 
         return res.status(200).json({ standardDeviation: standardDeviation.toFixed(2) });
-    } catch (err) {
+    }catch (err){
         console.log(err);
         return res.status(500).json({error:'An error occurred while calculating standard deviation.' });
     }
